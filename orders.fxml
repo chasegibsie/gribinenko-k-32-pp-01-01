@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox spacing="20.0" style="-fx-background-color: #E6E4DA;"
+      xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.kartonplus.controller.OrdersController">
+    <padding>
+        <Insets bottom="30" left="30" right="30" top="30"/>
+    </padding>
+
+    <Label text="Учет заказов" textFill="#2E2E2E">
+        <font>
+            <Font name="Arial" size="28.0"/>
+        </font>
+    </Label>
+
+    <HBox spacing="10.0">
+        <Button fx:id="addButton" onAction="#handleAddOrder" text="Добавить заказ"
+                style="-fx-background-color: #6B7B84; -fx-text-fill: white; -fx-font-size: 14px; -fx-padding: 12 25; -fx-background-radius: 5; -fx-font-weight: bold;"/>
+        <Button fx:id="refreshButton" onAction="#handleRefresh" text="Обновить"
+                style="-fx-background-color: #A9ACA9; -fx-text-fill: white; -fx-font-size: 14px; -fx-padding: 12 25; -fx-background-radius: 5; -fx-font-weight: bold;"/>
+    </HBox>
+
+    <TableView fx:id="ordersTable" style="-fx-background-color: white;">
+        <columns>
+            <TableColumn fx:id="orderNumberCol" text="Номер заказа" prefWidth="130"/>
+            <TableColumn fx:id="clientNameCol" text="Клиент" prefWidth="180"/>
+            <TableColumn fx:id="productTypeCol" text="Продукция" prefWidth="150"/>
+            <TableColumn fx:id="quantityCol" text="Количество" prefWidth="100"/>
+            <TableColumn fx:id="statusCol" text="Статус" prefWidth="130"/>
+            <TableColumn fx:id="productionDateCol" text="Дата производства" prefWidth="150"/>
+            <TableColumn fx:id="shippingDateCol" text="Дата отгрузки" prefWidth="130"/>
+            <TableColumn fx:id="consumptionCol" text="Расход сырья" prefWidth="130"/>
+            <TableColumn fx:id="actionsCol" text="Действия" prefWidth="150"/>
+        </columns>
+    </TableView>
+</VBox>

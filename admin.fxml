@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox spacing="20.0" style="-fx-background-color: #E6E4DA;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.kartonplus.controller.AdminController">
+    <padding>
+        <Insets bottom="30" left="30" right="30" top="30" />
+    </padding>
+
+    <Label text="Администрирование системы" textFill="#2E2E2E">
+        <font>
+            <Font name="Arial" size="28.0" />
+        </font>
+    </Label>
+
+    <VBox prefWidth="1442.0" spacing="10.0" style="-fx-background-color: white; -fx-background-radius: 10; -fx-padding: 15 20; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 5);">
+        <Label text="➕ Добавление нового пользователя" textFill="#5E4B3B">
+            <font>
+                <Font name="Arial" size="16.0" />
+            </font>
+        </Label>
+
+        <HBox alignment="CENTER_LEFT" spacing="10.0">
+            <VBox spacing="3.0">
+                <Label style="-fx-font-size: 12px;" text="Логин:" textFill="#2E2E2E" />
+                <TextField fx:id="newUsernameField" prefHeight="38.0" prefWidth="182.0" promptText="Введите логин" style="-fx-background-color: #F5F5F5; -fx-border-color: #A9ACA9; -fx-border-radius: 5; -fx-padding: 8; -fx-font-size: 13px;" />
+            </VBox>
+            <VBox spacing="3.0">
+                <Label style="-fx-font-size: 12px;" text="Пароль:" textFill="#2E2E2E" />
+                <PasswordField fx:id="newPasswordField" prefHeight="37.0" prefWidth="163.0" promptText="Введите пароль" style="-fx-background-color: #F5F5F5; -fx-border-color: #A9ACA9; -fx-border-radius: 5; -fx-padding: 8; -fx-font-size: 13px;" />
+            </VBox>
+            <VBox spacing="3.0">
+                <Label style="-fx-font-size: 12px;" text="ФИО:" textFill="#2E2E2E" />
+                <TextField fx:id="newFullNameField" prefHeight="37.0" prefWidth="238.0" promptText="Введите ФИО" style="-fx-background-color: #F5F5F5; -fx-border-color: #A9ACA9; -fx-border-radius: 5; -fx-padding: 8; -fx-font-size: 13px;" />
+            </VBox>
+            <VBox spacing="3.0">
+                <Label style="-fx-font-size: 12px;" text="Роль:" textFill="#2E2E2E" />
+                <ComboBox fx:id="roleComboBox" prefWidth="90" style="-fx-background-color: #F5F5F5; -fx-border-color: #A9ACA9; -fx-border-radius: 5; -fx-font-size: 13px; -fx-padding: 5;" />
+            </VBox>
+            <VBox spacing="3.0">
+                <Label style="-fx-font-size: 12px;" text=" " />
+                <StackPane>
+                    <Button fx:id="addUserButton" onAction="#handleAddUser" style="-fx-background-color: #6B7B84; -fx-text-fill: white; -fx-font-size: 13px; -fx-padding: 8 20; -fx-background-radius: 5; -fx-font-weight: bold; -fx-cursor: hand;" text="Добавить" />
+                    <ProgressIndicator fx:id="loadingIndicator" prefHeight="25" prefWidth="25" visible="false" />
+                </StackPane>
+            </VBox>
+        </HBox>
+
+        <Label fx:id="adminMessageLabel" style="-fx-font-size: 13px;" visible="false" wrapText="true" />
+    </VBox>
+
+    <VBox prefHeight="313.0" prefWidth="695.0" spacing="10.0" style="-fx-background-color: white; -fx-background-radius: 10; -fx-padding: 15 20; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 5); VBox.vgrow=ALWAYS;">
+        <HBox alignment="CENTER_LEFT" spacing="10.0">
+            <Label text="👥 Список пользователей" textFill="#5E4B3B">
+                <font>
+                    <Font name="Arial" size="16.0" />
+                </font>
+            </Label>
+            <Region HBox.hgrow="ALWAYS" />
+            <Button fx:id="refreshUsersButton" onAction="#handleRefreshUsers" style="-fx-background-color: #A9ACA9; -fx-text-fill: white; -fx-font-size: 13px; -fx-padding: 8 18; -fx-background-radius: 5; -fx-font-weight: bold; -fx-cursor: hand;" text="🔄 Обновить" />
+        </HBox>
+
+        <TableView fx:id="usersTable" prefHeight="0" style="-fx-background-color: white; -fx-border-color: #A9ACA9; -fx-border-radius: 5;" VBox.vgrow="ALWAYS">
+            <columns>
+                <TableColumn fx:id="idCol" prefWidth="50" text="ID" />
+                <TableColumn fx:id="usernameCol" prefWidth="150" text="Логин" />
+                <TableColumn fx:id="fullNameCol" prefWidth="250" text="ФИО" />
+                <TableColumn fx:id="roleCol" prefWidth="100" text="Роль" />
+                <TableColumn fx:id="actionsCol" prefWidth="100" text="Действия" />
+            </columns>
+        </TableView>
+    </VBox>
+</VBox>

@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox spacing="20.0" style="-fx-background-color: #E6E4DA;"
+      xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.kartonplus.controller.DashboardController">
+    <padding>
+        <Insets bottom="30" left="30" right="30" top="30"/>
+    </padding>
+
+    <HBox alignment="CENTER_LEFT" spacing="20.0">
+        <Label text="Панель управления" textFill="#2E2E2E">
+            <font>
+                <Font name="Arial" size="28.0"/>
+            </font>
+        </Label>
+        <Region HBox.hgrow="ALWAYS"/>
+        <Label fx:id="lastUpdateLabel" textFill="#A9ACA9" style="-fx-font-size: 12px;"/>
+        <HBox fx:id="adminButtonContainer" alignment="CENTER_RIGHT"/>
+    </HBox>
+
+    <GridPane fx:id="metricsGrid" hgap="20.0" vgap="20.0">
+        <VBox fx:id="urgentBox" style="-fx-background-color: white; -fx-border-radius: 10; -fx-background-radius: 10; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 5); -fx-border-left: 5px solid #D32F2F;" spacing="10.0" GridPane.columnIndex="0" GridPane.rowIndex="0">
+            <padding>
+                <Insets bottom="20" left="20" right="20" top="20"/>
+            </padding>
+            <Label text="Срочно заказать" textFill="#A9ACA9">
+                <font><Font name="Arial" size="14.0"/></font>
+            </Label>
+            <Label fx:id="urgentValue" text="0" textFill="#D32F2F">
+                <font><Font name="Arial" size="32.0"/></font>
+            </Label>
+            <Label text="Остаток &lt; 2 дней" textFill="#2E2E2E">
+                <font><Font name="Arial" size="12.0"/></font>
+            </Label>
+        </VBox>
+
+        <VBox style="-fx-background-color: white; -fx-border-radius: 10; -fx-background-radius: 10; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 5); -fx-border-left: 5px solid #6B7B84;" spacing="10.0" GridPane.columnIndex="1" GridPane.rowIndex="0">
+            <padding>
+                <Insets bottom="20" left="20" right="20" top="20"/>
+            </padding>
+            <Label text="Сырье на складе" textFill="#A9ACA9">
+                <font><Font name="Arial" size="14.0"/></font>
+            </Label>
+            <Label fx:id="stockValue" text="0 тонн / 0 рулонов" textFill="#6B7B84">
+                <font><Font name="Arial" size="24.0"/></font>
+            </Label>
+            <Label text="Общие запасы" textFill="#2E2E2E">
+                <font><Font name="Arial" size="12.0"/></font>
+            </Label>
+        </VBox>
+
+        <VBox style="-fx-background-color: white; -fx-border-radius: 10; -fx-background-radius: 10; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 5); -fx-border-left: 5px solid #6B7B84;" spacing="10.0" GridPane.columnIndex="2" GridPane.rowIndex="0">
+            <padding>
+                <Insets bottom="20" left="20" right="20" top="20"/>
+            </padding>
+            <Label text="Активные заказы" textFill="#A9ACA9">
+                <font><Font name="Arial" size="14.0"/></font>
+            </Label>
+            <Label fx:id="activeOrdersValue" text="0" textFill="#6B7B84">
+                <font><Font name="Arial" size="32.0"/></font>
+            </Label>
+            <Label text="В производстве" textFill="#2E2E2E">
+                <font><Font name="Arial" size="12.0"/></font>
+            </Label>
+        </VBox>
+
+        <VBox style="-fx-background-color: white; -fx-border-radius: 10; -fx-background-radius: 10; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 5); -fx-border-left: 5px solid #5E4B3B;" spacing="10.0" GridPane.columnIndex="3" GridPane.rowIndex="0">
+            <padding>
+                <Insets bottom="20" left="20" right="20" top="20"/>
+            </padding>
+            <Label text="Отгрузка сегодня" textFill="#A9ACA9">
+                <font><Font name="Arial" size="14.0"/></font>
+            </Label>
+            <Label fx:id="shippingValue" text="0 заказов" textFill="#5E4B3B">
+                <font><Font name="Arial" size="24.0"/></font>
+            </Label>
+            <Label text="Ближайшие отгрузки" textFill="#2E2E2E">
+                <font><Font name="Arial" size="12.0"/></font>
+            </Label>
+        </VBox>
+    </GridPane>
+
+    <Label text="Ближайшие отгрузки" textFill="#2E2E2E">
+        <font>
+            <Font name="Arial" size="20.0"/>
+        </font>
+    </Label>
+
+    <TableView fx:id="shippingTable" prefHeight="250.0" style="-fx-background-color: white; -fx-border-radius: 5; -fx-border-color: #A9ACA9;">
+        <columns>
+            <TableColumn fx:id="orderNumberCol" text="Заказ №" prefWidth="120"/>
+            <TableColumn fx:id="clientCol" text="Клиент" prefWidth="200"/>
+            <TableColumn fx:id="productCol" text="Продукция" prefWidth="200"/>
+            <TableColumn fx:id="shippingDateCol" text="Дата отгрузки" prefWidth="150"/>
+            <TableColumn fx:id="statusCol" text="Статус" prefWidth="150"/>
+        </columns>
+    </TableView>
+</VBox>

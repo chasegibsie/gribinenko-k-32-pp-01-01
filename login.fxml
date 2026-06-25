@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox alignment="CENTER" spacing="20.0" style="-fx-background-color: #E6E4DA;"
+      xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.kartonplus.controller.LoginController">
+    <padding>
+        <Insets bottom="40" left="40" right="40" top="40"/>
+    </padding>
+
+    <Label text="Картон-Плюс" textFill="#2E2E2E">
+        <font>
+            <Font name="Arial" size="36.0"/>
+        </font>
+    </Label>
+
+    <Label text="Система управления производством" textFill="#6B7B84">
+        <font>
+            <Font name="Arial" size="16.0"/>
+        </font>
+    </Label>
+
+    <TextField fx:id="usernameField" maxWidth="300.0" promptText="Логин"
+               style="-fx-background-color: white; -fx-border-color: #A9ACA9; -fx-border-radius: 5; -fx-padding: 12; -fx-font-size: 14px;"/>
+
+    <PasswordField fx:id="passwordField" maxWidth="300.0" promptText="Пароль"
+                   style="-fx-background-color: white; -fx-border-color: #A9ACA9; -fx-border-radius: 5; -fx-padding: 12; -fx-font-size: 14px;"/>
+
+    <StackPane>
+        <Button fx:id="loginButton" maxWidth="300.0" onAction="#handleLogin" text="Войти"
+                style="-fx-background-color: #6B7B84; -fx-text-fill: white; -fx-font-size: 14px; -fx-padding: 12 25; -fx-background-radius: 5; -fx-font-weight: bold;"/>
+        <ProgressIndicator fx:id="loadingIndicator" visible="false" prefWidth="30" prefHeight="30"/>
+    </StackPane>
+
+    <Label fx:id="errorLabel" textFill="#D32F2F" visible="false" wrapText="true" maxWidth="300">
+        <font>
+            <Font name="Arial" size="12.0"/>
+        </font>
+    </Label>
+</VBox>

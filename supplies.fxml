@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox spacing="20.0" style="-fx-background-color: #E6E4DA;"
+      xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.kartonplus.controller.SuppliesController">
+    <padding>
+        <Insets bottom="30" left="30" right="30" top="30"/>
+    </padding>
+
+    <Label text="Поставки сырья" textFill="#2E2E2E">
+        <font>
+            <Font name="Arial" size="28.0"/>
+        </font>
+    </Label>
+
+    <HBox spacing="10.0">
+        <Button fx:id="addButton" onAction="#handleAddSupply" text="Добавить поставку"
+                style="-fx-background-color: #6B7B84; -fx-text-fill: white; -fx-font-size: 14px; -fx-padding: 12 25; -fx-background-radius: 5; -fx-font-weight: bold;"/>
+        <Button fx:id="refreshButton" onAction="#handleRefresh" text="Обновить"
+                style="-fx-background-color: #A9ACA9; -fx-text-fill: white; -fx-font-size: 14px; -fx-padding: 12 25; -fx-background-radius: 5; -fx-font-weight: bold;"/>
+    </HBox>
+
+    <TableView fx:id="suppliesTable" style="-fx-background-color: white;">
+        <columns>
+            <TableColumn fx:id="idCol" text="№" prefWidth="50"/>
+            <TableColumn fx:id="materialNameCol" text="Материал" prefWidth="180"/>
+            <TableColumn fx:id="quantityCol" text="Количество (тонн)" prefWidth="150"/>
+            <TableColumn fx:id="rollsCol" text="Рулонов" prefWidth="100"/>
+            <TableColumn fx:id="supplyDateCol" text="Дата поставки" prefWidth="130"/>
+            <TableColumn fx:id="supplierCol" text="Поставщик" prefWidth="150"/>
+            <TableColumn fx:id="documentCol" text="Документ" prefWidth="130"/>
+        </columns>
+    </TableView>
+</VBox>
